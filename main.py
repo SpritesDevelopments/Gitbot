@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands, tasks
 from discord_slash import SlashCommand, SlashContext
 from keep_alive import keep_alive
-
+import os
 
 intents = discord.Intents.default()
 intents.typing = False
@@ -16,7 +16,7 @@ notification_channel = None
 
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user.name}')
+    print(f'sprites team presents,{bot.user.name}')
     # Start the keep-alive task
     keep_alive.start()
 
@@ -82,4 +82,6 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-bot.run('OTgxNTU4ODUzMDYzODExMTYy.G1Tgxz.l1xf7Bg65QYx8taQ78f0aiyYEOJUxPIBlplwGE')
+bot.run(os.getenv("BOT_TOKEN"))
+
+run()
